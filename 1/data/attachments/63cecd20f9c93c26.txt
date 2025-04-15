@@ -1,0 +1,40 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Academybugs Test >> The page freezes when clicking on the numbers of results
+- Location: /home/runner/work/findbugs_qaguru/findbugs_qaguru/tests/academybugs.test.js:22:9
+
+# Error details
+
+```
+Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+Call log:
+  - navigating to "", waiting until "load"
+
+    at MainPage.openPage (/home/runner/work/findbugs_qaguru/findbugs_qaguru/pages/main-page.js:9:25)
+    at /home/runner/work/findbugs_qaguru/findbugs_qaguru/tests/academybugs.test.js:19:24
+```
+
+# Test source
+
+```ts
+   1 | require('dotenv').config();
+   2 |
+   3 | export class MainPage{
+   4 |     constructor(page){
+   5 |         this.page = page;
+   6 |     }
+   7 |
+   8 |     async openPage(){
+>  9 |         await this.page.goto(process.env.BASE_URL);
+     |                         ^ Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+  10 |     }
+  11 |
+  12 | }
+  13 |
+```
